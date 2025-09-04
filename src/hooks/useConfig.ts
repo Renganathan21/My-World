@@ -56,11 +56,12 @@ export const useConfig = () => {
   useEffect(() => {
     const loadConfig = async () => {
       try {
-        const response = await fetch('/src/data/config.json');
+        // Fetch from public folder
+        const response = await fetch('/config.json');
         if (!response.ok) {
           throw new Error('Failed to load configuration');
         }
-        const data = await response.json();
+        const data: ConfigData = await response.json();
         setConfigData(data);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load configuration');

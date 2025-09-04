@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Search, Moon, Sun, Trees, Stars, Scroll, Menu, X } from 'lucide-react';
+import { Search, Moon, Sun, Trees, Stars, Scroll, Menu, X, Mail } from 'lucide-react';
 import { useTheme, Theme } from '../hooks/useTheme';
 
 interface HeaderConfig {
@@ -11,6 +11,7 @@ interface HeaderConfig {
 
 interface HeaderProps {
   config: HeaderConfig;
+  portFolio: string;
   onSearch: (query: string) => void;
 }
 
@@ -22,7 +23,7 @@ const themeIcons: Record<Theme, React.ComponentType<any>> = {
   vintage: Scroll,
 };
 
-export const Header: React.FC<HeaderProps> = ({ config, onSearch }) => {
+export const Header: React.FC<HeaderProps> = ({ config, portFolio, onSearch }) => {
   const { theme, setTheme, availableThemes } = useTheme();
   const [searchQuery, setSearchQuery] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -58,6 +59,8 @@ export const Header: React.FC<HeaderProps> = ({ config, onSearch }) => {
             </h1>
           </motion.div>
 
+
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {config.showSearch && (
@@ -74,6 +77,18 @@ export const Header: React.FC<HeaderProps> = ({ config, onSearch }) => {
                 />
               </form>
             )}
+             <motion.a
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}
+    href={portFolio} // replace with your portfolio URL
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center space-x-2 px-3 py-2 rounded-full bg-[var(--theme-bg-secondary)] 
+               text-[var(--theme-text-primary)] hover:bg-[var(--theme-bg-accent)] transition-colors"
+  >
+    <Mail className="w-5 h-5" />
+    <span>Contact Me</span>
+  </motion.a>
 
             {/* Theme Selector */}
             <div className="relative">

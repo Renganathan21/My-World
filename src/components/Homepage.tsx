@@ -103,7 +103,7 @@ export const Homepage: React.FC<HomepageProps> = ({
           <h1 className="text-4xl md:text-6xl font-bold text-[var(--theme-text-primary)] mb-4">
             Welcome to{' '}
             <span className="bg-gradient-to-r from-[var(--theme-accent)] to-purple-400 bg-clip-text text-transparent">
-              Mythic Chronicles
+              Renga Nathan's Magical Library
             </span>
           </h1>
           <p className="text-xl text-[var(--theme-text-secondary)] max-w-2xl mx-auto">

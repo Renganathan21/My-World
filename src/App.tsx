@@ -94,7 +94,7 @@ function App() {
     <ThemeProvider availableThemes={configData.config.themes as Theme[]}>
       <div className="min-h-screen bg-[var(--theme-bg-primary)]">
         {currentView === 'home' && (
-          <Header config={configData.config.header} onSearch={handleSearch} />
+          <Header config={configData.config.header} portFolio={configData.config.portfolioUrl} onSearch={handleSearch} />
         )}
 
         <AnimatePresence mode="wait">
